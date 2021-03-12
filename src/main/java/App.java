@@ -1,5 +1,11 @@
+import models.user.DefaultUser;
+import views.login.LoginMenu;
+import views.mainmenu.MainSwitch;
+
 public class App {
 	public static void main(String[] args) {
-    System.out.println("HOLA HOLA");
+    DefaultUser.defaultUser();
+    LoginMenu.showLoginMenu();
+    MainSwitch.show();
 	}
 }

@@ -4,18 +4,16 @@ import models.item.Item;
 import java.util.ArrayList;
 
 public class ArrayItem {
-	private static ArrayItem instanceItem;
 	private static ArrayList<Item> itemList;
 
 	private ArrayItem() {
-		itemList = new ArrayList<>();
 	}
 
-	public static ArrayItem getInstanceItemList() {
-		if (instanceItem == null) {
-			instanceItem = new ArrayItem();
-			return instanceItem;
+	public static ArrayList<Item> getInstanceItemList() {
+		if (itemList == null) {
+			itemList = new ArrayList<>();
+			return itemList;
 		}
-		return instanceItem;
+		return itemList;
 	}
 }
