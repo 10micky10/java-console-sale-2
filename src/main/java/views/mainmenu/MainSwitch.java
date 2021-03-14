@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import tools.CleanScreen;
 import views.greetings.GoodBye;
+import views.itemmenu.ItemSwitch;
 import views.usermenu.UserSwitch;
 
 public class MainSwitch {
@@ -19,10 +20,11 @@ public class MainSwitch {
           UserSwitch.show();
           break;
         case "2":
+          ItemSwitch.itemSwitch();
           break;
         case "4":
-          System.out.println("Exit to Console Sale");
           GoodBye.showGoodByeMenu();
+          break;
         default :
           System.out.println("Invalid Option");
       }

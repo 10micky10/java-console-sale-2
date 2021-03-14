@@ -45,5 +45,6 @@ public class UserEdit {
     } else {
       System.out.println("Invalid id");
     }
+    System.out.println("-------------------------------");
   }
 }
