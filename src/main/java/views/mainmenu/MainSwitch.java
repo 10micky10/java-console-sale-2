@@ -5,6 +5,7 @@ import java.util.Scanner;
 import tools.CleanScreen;
 import views.greetings.GoodBye;
 import views.itemmenu.ItemSwitch;
+import views.salemenu.SaleSwitch;
 import views.usermenu.UserSwitch;
 
 public class MainSwitch {
@@ -21,6 +22,9 @@ public class MainSwitch {
           break;
         case "2":
           ItemSwitch.itemSwitch();
+          break;
+        case "3":
+          SaleSwitch.saleSwitch();
           break;
         case "4":
           GoodBye.showGoodByeMenu();
