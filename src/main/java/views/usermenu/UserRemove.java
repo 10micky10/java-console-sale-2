@@ -14,7 +14,7 @@ public class UserRemove {
     System.out.println("-------------------------------");
     System.out.println("          REMOVE USER          ");
     System.out.println("-------------------------------");
-    System.out.println("Enter user id");
+    System.out.print("Enter user id: ");
     Scanner keyboardInput = new Scanner(System.in);
     int idUser = keyboardInput.nextInt();
     if(idUser >= 0 && idUser < arrayListContainer.userList.size()){

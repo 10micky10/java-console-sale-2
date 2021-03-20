@@ -6,6 +6,7 @@ import container.ArrayListContainer;
 import controllers.HandleAdd;
 import models.item.Item;
 import models.sale.Sale;
+import models.user.User;
 import tools.CleanScreen;
 
 public class RegisterSale {
@@ -30,22 +31,26 @@ public class RegisterSale {
       System.out.println("         REGISTER SALE         ");
       System.out.println("-------------------------------");
       System.out.println("Client: " + sale.client.name + " " + sale.client.lastName);
+      System.out.println("Date: " + sale.date);
       System.out.println("-------------------------------");
-      System.out.println("             Items             ");
-      System.out.println("-------------------------------");
+      System.out.println("             ITEMS             ");
       for (Item item :  sale.getProductList()) {
         System.out.println("Item name: " + item.name);
-        System.out.println("-------------------------------");
       }
+      System.out.println("-------------------------------");
       System.out.println("Register Sale?\nYES(Y)/NO(N)");
       String reply = keyboardInput.nextLine();
       if (reply.equalsIgnoreCase("Y") || reply.equalsIgnoreCase("YES")) {
+        int beforeTamArray = arrayListContainer.saleList.size();
         HandleAdd.add(arrayListContainer.saleList, sale);
-        ClientDate.user = null;
-        ClientDate.date = "";
-        AddItem.sale.client = null;
-        AddItem.sale.getProductList().clear();
-        System.out.println("Register Sucessfully");
+        if(beforeTamArray != arrayListContainer.saleList.size()){
+          User emptyUser = new User();
+          ClientDate.user = emptyUser;
+          ClientDate.date = "";
+          Sale emptySale = new Sale();
+          AddItem.sale = emptySale;
+          System.out.println("Register Sucessfully");
+        }
       } else if (reply.equalsIgnoreCase("NO") || reply.equalsIgnoreCase("N")) {
         System.out.println("You can add more items");
       }

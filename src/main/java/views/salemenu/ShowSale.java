@@ -19,15 +19,16 @@ public class ShowSale {
     for(Sale sale : arrayListContainer.saleList) {
       System.out.println("***                         ***");
       System.out.println("-------------------------------");
-      System.out.println("Sale Id: " + index);
-      System.out.println("Date: " + sale.date);
+      System.out.println("Id: " + index);
       System.out.println("Client: " + sale.client.name + " "  + sale.client.lastName);
+      System.out.println("Date: " + sale.date);
       System.out.println("-------------------------------");
-      for (Item item : sale.getProductList()){
+      System.out.println("             ITEMS             ");
+      for (Item item : sale.getProductList()) {
         System.out.println("Name Item: " + item.name);
-        System.out.println("-------------------------------");
       }
       index++;
+      System.out.println("-------------------------------");
     }
     System.out.println("Enter enter to continue");
     Scanner keyboardInput = new Scanner(System.in);

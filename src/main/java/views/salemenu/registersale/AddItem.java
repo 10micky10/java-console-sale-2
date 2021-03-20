@@ -28,7 +28,7 @@ public class AddItem {
       System.out.println("-------------------------------");
       System.out.println("Client: " +  ClientDate.user.name + " " + ClientDate.user.lastName);
       System.out.println("-------------------------------");
-      System.out.println("Enter Item id");
+      System.out.print("Enter Item id: ");
       int idItem = Integer.parseInt(keyboardInput.nextLine());
       if (idItem >= 0 && idItem < arrayListContainer.itemList.size()) {
         sale.setProduct(arrayListContainer.itemList.get(idItem));
