@@ -2,11 +2,12 @@ package views.salemenu.registersale;
 
 import java.util.Scanner;
 
-import container.ArrayItem;
+import container.ArrayListContainer;
 import models.sale.Sale;
 import tools.CleanScreen;
 
 public class AddItem {
+  private static ArrayListContainer arrayListContainer = ArrayListContainer.getInstance();
   protected static Sale sale = new Sale();
 
   private AddItem() {
@@ -29,8 +30,9 @@ public class AddItem {
       System.out.println("-------------------------------");
       System.out.println("Enter Item id");
       int idItem = Integer.parseInt(keyboardInput.nextLine());
-      if (idItem >= 0 && idItem < ArrayItem.getInstanceItemList().size()) {
-        sale.setProduct(ArrayItem.getInstanceItemList().get(idItem));
+      if (idItem >= 0 && idItem < arrayListContainer.itemList.size()) {
+        sale.setProduct(arrayListContainer.itemList.get(idItem));
+        System.out.println("Add Product Sucessfully");
       } else {
         System.out.println("Invalid id");
       }

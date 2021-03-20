@@ -2,11 +2,12 @@ package views.usermenu;
 
 import java.util.Scanner;
 
-import container.ArrayUser;
+import container.ArrayListContainer;
 import models.user.User;
 import tools.CleanScreen;
 
 public class UserShow {
+  private static ArrayListContainer arrayListContainer = ArrayListContainer.getInstance();
 
   public static void show(){
     int index = 0;
@@ -14,7 +15,7 @@ public class UserShow {
     System.out.println("-------------------------------");
     System.out.println("          SHOW USER            ");
     System.out.println("-------------------------------");
-    for(User user : ArrayUser.getInstanceUserList()){
+    for(User user : arrayListContainer.userList){
       System.out.println("***                         ***");
       System.out.println("-------------------------------");
       System.out.println("Id: " + index);

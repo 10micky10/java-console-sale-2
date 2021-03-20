@@ -2,14 +2,14 @@ package views.usermenu;
 
 import java.util.Scanner;
 
-import container.ArrayUser;
+import container.ArrayListContainer;
 import controllers.HandleEdit;
 import models.user.User;
 import security.ValidateUser;
 import tools.CleanScreen;
 
 public class UserEdit {
-
+  private static ArrayListContainer arrayListContainer = ArrayListContainer.getInstance();
   public static void edit(){
     CleanScreen.clean();
     System.out.println("-------------------------------");
@@ -18,7 +18,7 @@ public class UserEdit {
     System.out.print("Enter User id to edit: ");
     Scanner keyboardInput = new Scanner(System.in);
     int idEdit = Integer.parseInt(keyboardInput.nextLine());
-    if (idEdit >= 0 && idEdit < ArrayUser.getInstanceUserList().size()) {
+    if (idEdit >= 0 && idEdit < arrayListContainer.userList.size()) {
       System.out.println("-------------------------------");
       System.out.print("UserName: ");
       User userEdit = new User();
@@ -37,7 +37,7 @@ public class UserEdit {
       userEdit.lastName = keyboardInput.nextLine();
       System.out.println("-------------------------------");
       if(ValidateUser.validate(userEdit)){
-        HandleEdit.edit(ArrayUser.getInstanceUserList(), userEdit, idEdit);
+        HandleEdit.edit(arrayListContainer.userList, userEdit, idEdit);
         System.out.println("Edit Sucessfully");
       } else {
         System.out.println("Cannot Edit because 1 camp is empty");

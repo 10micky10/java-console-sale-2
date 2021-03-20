@@ -2,11 +2,12 @@ package views.itemmenu;
 
 import java.util.Scanner;
 
-import container.ArrayItem;
+import container.ArrayListContainer;
 import controllers.HandleRemove;
 import tools.CleanScreen;
 
 public class ItemRemove {
+  private static ArrayListContainer arrayListContainer = ArrayListContainer.getInstance();
 
   public static void remove() {
     CleanScreen.clean();
@@ -17,8 +18,8 @@ public class ItemRemove {
     Scanner keyboardInput = new Scanner(System.in);
     int idItem = keyboardInput.nextInt();
     System.out.println("-------------------------------");
-    if (idItem >= 0 && idItem < ArrayItem.getInstanceItemList().size()) {
-      HandleRemove.remove(ArrayItem.getInstanceItemList(), idItem);
+    if (idItem >= 0 && idItem < arrayListContainer.itemList.size()) {
+      HandleRemove.remove(arrayListContainer.itemList, idItem);
       System.out.print("Remove Sucessfully");
     } else {
       System.out.println("Invalid id");

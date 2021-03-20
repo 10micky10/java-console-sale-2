@@ -2,13 +2,14 @@ package views.salemenu.registersale;
 
 import java.util.Scanner;
 
-import container.ArraySale;
+import container.ArrayListContainer;
 import controllers.HandleAdd;
 import models.item.Item;
 import models.sale.Sale;
 import tools.CleanScreen;
 
 public class RegisterSale {
+  private static ArrayListContainer arrayListContainer = ArrayListContainer.getInstance();
 
   public static void register() {
     CleanScreen.clean();
@@ -39,7 +40,7 @@ public class RegisterSale {
       System.out.println("Register Sale?\nYES(Y)/NO(N)");
       String reply = keyboardInput.nextLine();
       if (reply.equalsIgnoreCase("Y") || reply.equalsIgnoreCase("YES")) {
-        HandleAdd.add(ArraySale.getInstance(), sale);
+        HandleAdd.add(arrayListContainer.saleList, sale);
         ClientDate.user = null;
         ClientDate.date = "";
         AddItem.sale.client = null;

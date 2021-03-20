@@ -1,4 +1,4 @@
-package views.usermenu;
+package views.salemenu;
 
 import java.util.Scanner;
 
@@ -6,23 +6,22 @@ import container.ArrayListContainer;
 import controllers.HandleRemove;
 import tools.CleanScreen;
 
-public class UserRemove {
+public class RemoveSale {
   private static ArrayListContainer arrayListContainer = ArrayListContainer.getInstance();
 
-  public static void remove(){
+  public static void remove() {
     CleanScreen.clean();
     System.out.println("-------------------------------");
-    System.out.println("          REMOVE USER          ");
+    System.out.println("          REMOVE SALE          ");
     System.out.println("-------------------------------");
-    System.out.println("Enter user id");
+    System.out.println("Enter id Sale");
     Scanner keyboardInput = new Scanner(System.in);
-    int idUser = keyboardInput.nextInt();
-    if(idUser >= 0 && idUser < arrayListContainer.userList.size()){
-      HandleRemove.remove(arrayListContainer.userList, idUser);
-      System.out.println("Removed Sucessfully");
+    int idSale = Integer.parseInt(keyboardInput.nextLine());
+    if (idSale >= 0 && idSale < arrayListContainer.saleList.size()) {
+      HandleRemove.remove(arrayListContainer.saleList, idSale);
+      System.out.println("Remove Sucessfully");
     } else {
       System.out.println("Invalid Id");
     }
-    System.out.println("-------------------------------");
   }
 }

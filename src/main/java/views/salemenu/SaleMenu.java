@@ -2,7 +2,7 @@ package views.salemenu;
 
 public class SaleMenu {
 
-  public static void show(){
+  public static void show() {
     System.out.println("-------------------------------");
     System.out.println("           SALE MENU           ");
     System.out.println("-------------------------------");

@@ -18,7 +18,16 @@ public class SaleSwitch {
           RegisterSaleSwitch.saleSwitch();
           break;
         case "2":
-        
+          RemoveSale.remove();
+          break;
+        case "3":
+          ShowSale.show();
+          break;
+        case "4":
+          System.out.println("Returning to Main Menu");
+          break;
+        default:
+        System.out.println("Invalid Option");
       }
 
     } while (!(option.equals("4")));

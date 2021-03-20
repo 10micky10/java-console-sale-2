@@ -2,13 +2,14 @@ package views.usermenu;
 
 import java.util.Scanner;
 
-import container.ArrayUser;
+import container.ArrayListContainer;
 import controllers.HandleAdd;
 import models.user.User;
 import security.ValidateUser;
 import tools.CleanScreen;
 
 public class UserRegister {
+  private static ArrayListContainer arrayListContainer = ArrayListContainer.getInstance();
 
   public static void register(){
     CleanScreen.clean();
@@ -33,7 +34,7 @@ public class UserRegister {
     userRegister.lastName = keyboardInput.nextLine();
     System.out.println("-------------------------------");
     if(ValidateUser.validate(userRegister)){
-      HandleAdd.add(ArrayUser.getInstanceUserList(), userRegister);
+      HandleAdd.add(arrayListContainer.userList, userRegister);
       System.out.println("Register Sucessfully");
     } else {
       System.out.println("Cannot Register because 1 camp is empty");

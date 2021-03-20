@@ -2,13 +2,14 @@ package views.itemmenu;
 
 import java.util.Scanner;
 
-import container.ArrayItem;
+import container.ArrayListContainer;
 import controllers.HandleEdit;
 import models.item.Item;
 import security.ValidateItem;
 import tools.CleanScreen;
 
 public class ItemEdit {
+  private static ArrayListContainer arrayListContainer = ArrayListContainer.getInstance();
 
   public static void edit(){
     CleanScreen.clean();
@@ -23,11 +24,11 @@ public class ItemEdit {
     Item itemEdit = new Item();
     itemEdit.name = keyboardInput.nextLine();
     System.out.println("-------------------------------");
-    if (!(idItem >= 0 && idItem < ArrayItem.getInstanceItemList().size())) {
+    if (!(idItem >= 0 && idItem < arrayListContainer.itemList.size())) {
       System.out.println("Invalid id");
     } else {
       if (ValidateItem.validate(itemEdit)) {
-        HandleEdit.edit(ArrayItem.getInstanceItemList(), itemEdit, idItem);
+        HandleEdit.edit(arrayListContainer.itemList, itemEdit, idItem);
         System.out.println("Edited Sucessfully");
       } else {
         System.out.println("Cannot edit because 1 camp is empty");

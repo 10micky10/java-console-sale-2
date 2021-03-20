@@ -2,11 +2,12 @@ package views.salemenu.registersale;
 
 import java.util.Scanner;
 
-import container.ArrayUser;
+import container.ArrayListContainer;
 import models.user.User;
 import tools.CleanScreen;
 
 public class ClientDate {
+  private static ArrayListContainer arrayListContainer = ArrayListContainer.getInstance();
   protected static User user;
   protected static String date = "";
 
@@ -22,8 +23,8 @@ public class ClientDate {
     System.out.print("Enter client id: ");
     Scanner keyboardInput = new Scanner(System.in);
     int idClient = Integer.parseInt(keyboardInput.nextLine());
-    if (idClient >= 0 && idClient < ArrayUser.getInstanceUserList().size()) {
-      user = ArrayUser.getInstanceUserList().get(idClient);
+    if (idClient >= 0 && idClient < arrayListContainer.userList.size()) {
+      user = arrayListContainer.userList.get(idClient);
       System.out.println("-------------------------------");
       System.out.print("Enter date: ");
       date = keyboardInput.nextLine();
