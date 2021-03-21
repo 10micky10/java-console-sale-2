@@ -16,7 +16,7 @@ public class AddItem {
   public static void addItem() {
     CleanScreen.clean();
     Scanner keyboardInput = new Scanner(System.in);
-    if (ClientDate.date.equals("") && ClientDate.user == null) {
+    if (ClientDate.date.equals("") && ClientDate.user.name == null) {
       System.out.println("First Register Client and Date");
       System.out.println("Press enter to continue");
       keyboardInput.nextLine();
